@@ -1,0 +1,442 @@
+<!--.khi chỉ chỉnh chiều rộng (hay chiều) cao của ảnh thì chiều cao(chiều rộng) của ảnh
+sẽ thay đổi theo để đảm bảo ảnh được đúng định dạng, nếu thay đổi cả chiều dài và rộng 
+thì ảnh sẽ phải buộc kéo dãn theo kích thước mà ta đã chỉnh
+.object-fit: *; => điều chỉnh đối tượng(ở đây là ảnh) vừa vói kích thước(tạm gọi là khung) mà ta đưa ra 
+mà không bị kéo dãn. *contain: điều chỉnh ảnh vào giữa khung kích thước mà ta đề ra
+                     *cover: phóng to ảnh cho vừa khung, k bị kéo giãn
+.object-position: *; => điều hướng ảnh trong khung
+css dispaly properly: 1.block element = take up entire line, or div; paragraph, div:mặc định là block element                
+                      2.inline block elemtn = take up just enought spaces they need to; image, input => có thể có nhiều đối tượng trên một dòng
+                      3.inliine element = apear within a line of text; strong, span, u
+                      => việc chuyển đổi giữa block và inline-block giúp ích rất nhiều cho cài đặt giao diện web
+.video-author,.video-stat{} => cài đặt cả hai đối tượng này cùng lúc, khi hai đối tượng có thuộc tính cài đặt giống nhau
+.display: inline-block; => chuyển đổi tượng block sang inline-block    
+.<input class="(tên class)" type="(kiểu nhập)" placeholder="(nội dung hiện trong input)"> => tạo khung điền   
+.<img class="(tên class)" src="(đường dẫn tới ảnh)">               
+.<div></div>: là một block dùng để chứa các dối tượng khác
+.nested layouts: bất cứ một phần nào ở trên một trang web ta có thể chia thành các thành phần nhỏ lồng vào nhau gốm 2 loại
+*bố cục dọc: các đối tượng xêp thành hàng ngang 
+*bố cục ngang: các dối tượng xếp thành hàng dọc
+=> việc phân tích thành các bố cục ngang dọc lồng vào nhau với các đối tượng được thu gọn
+vào trong các <div></div> giúp dễ dàng triển khai một cách khoa học
+.CSS grid => display: grid; : thay cho việc chỉ làm thủ công ví dụ như:
+.video-info{
+        display: inline-block;
+        width: 200px;
+      }
+=> thì bố cục sẽ được chia thành các ô dạng lưới
+*grid-template-colums: (kích thước cột thứ nhất) (kích thước cột thứ hai) (kích thước cột thứ ba)........
+ -> kích thước của các cột được tính bằng pixel
+ -> các div được tạo sẽ được tính là cột theo thứ tự, khi số div nhiều hơn số cột => các div tiếp theo sẽ được đẩy xuống hàng dưới và sẽ được tính tiếp theo thứ tự cột
+ -> với kích thước ô có đơn vị là fr (fraction) thì ô đó sẽ có kích thước lấp đầy phần còn lại của một <div> theo chiều ngang, có thể có nhiều cột có giá trị fr,
+  lúc này các cột sẽ chia nhau lấp đầy <div>, các ô 1fr sẽ có kích thước bằng nhau, còn các ô nfr sẽ có kích thước gấp n lần 1fr
+.CSS flexbox => display: flex; : tương tự như grid, nhưng khai báo cột nào thì mới định dạng cột đấy.
+             => flexbox mặc định là một inline-box      
+             => để cột có kích thước tùy biến như cột có đơn vị fr của grid => flex: 1; max-with được sử dụng để giói hạn độ rộng mà cột flex được kéo ra
+             => flex-shrik: (giá trị); điều chỉnh độ thu hẹp khoảng cách giứa các đối tượng trong flexbox, 0 là không thu, từ đó tăng đân
+.CSS: position: (option); => static: mặc định
+                          => fixed: div khi được đặt là fix, nó sẽ trở thành 1 inlineblock chỉ chiến không gian hoạn động vừa đủ, fix nổi lên trên các đối tượng khác, giữ nguyên vị trí và không thế bị kéo trôi đi (vì fixed được đặt tại cửa sổ browser)
+*(top/left/right/bottom): (giá trị); =>điều hướng đối tượng sao cho nó cách bên (trên/trái/phải/dưới) của trang một khoảng giá trị pixel, nếu ta đặt 2 hướng đối lập (ví dụ đặt cả top: 50px; và right:50px;) thì
+đối tượng sẽ bị kéo giãn để phù hợp với sự thiết lập 
+                          => absolute: tương tự như fixed, nhưng có thể bị kéo trôi đi (vì absolute được đặt tại trang web)
+*mặc định đối tượng nào được tạo sau sẽ được hiển nổi lên trên các đối tượng được tạo ra trước nó (không áp dụng với các đối tượng static)
+=> z-index: giá trị; giá trị z-index mặc định của một đối tượng là 0, tối tượng nào có giá trị z-index cao hơn thì đối tượng đó sẽ nổi lên trên             
+                          => realative: cho phép các đối tượng khác dính lên đối tượng relative
+*Các đối tượng void k thể đặt trực tiếp position mà phải thông qua các dối tượng hoặc các div khác
+.để chọn tất cả các đối tượng trong một class:
+=> .(tên class1) .(tên class2){} -> chọn tất cả các đối tượng của class 2 trong class 1       
+=> .(tên class1) (tên kiểu đối tượng) -> chọn tất cả các đối tượng thuộc kiểu đó trong class1, vd: .sidebar img{} chọn tất cả các ảnh trong class sidebar                    
+.khi định dạng  flex-direction: column; => thì align-items: <option>; sẽ căn hướng điều chỉnh theo chiều dọc còn   justify-content: center; sẽ căn hướng theo chiều ngang
+=> bản chất align-items: <option>; là căn theo trục chính còn justify-content: center; là căn theo trục chéo
+=> white-space: nowrap; -> không cho text thu lại
+.Media Query: @media (điều kiện) {} -> áp dụng bên trong nếu điều kiện về màn hình là đúng đúng
+vd: @media (min-width: 1000px){
+  .video-grid{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+} => khi màn hình đại tối thiểu 1000px thì lưới sẽ có 4 cột
+ => CSS cũng có tính kế thừa cho text: khi div cha được cài đặt kiểu với text, các cài dặt cũng áp dụng cho các div con
+.semantic element (đối tượng ngữ nghĩa): gần gióng với div, dùng để phân biệt các khối(div), cho screen readers: <header>, <nav>, <main>, section
+   /* css comment*/
+  --> <!--html comment-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Youtube.com Clone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/video.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+  </head>
+
+  <body>
+    <header class="header"> 
+      <div class="left-section">
+        <img class="hamburger-menu" src="icons/hamburger-menu.svg">
+        <img class="youtube-logo" src="icons/youtube-logo.svg">
+      </div>
+
+      <nav class="middle-section">
+        <input class="search-bar" type="text" placeholder="Search">
+        <button class="search-button">
+          <img class="search-icon" src="icons/search.svg">
+          <div class="tooltip">Search</div>
+        </button>
+        <button class="voice-search-button">
+          <img class="voice-search-icon" src="icons/voice-search-icon.svg">
+          <div class="tooltip">Search with your voice</div>
+        </button>
+      </nav>
+
+      <nav class="right-section">
+        <div class="upload-icon-container">
+          <img class="upload-icon" src="icons/upload.svg">
+          <div class="tooltip">Create</div>
+        </div>
+        <div class="youtube-apps-icon-container">
+          <img class="youtube-apps-icon" src="icons/youtube-apps.svg">
+          <div class="tooltip">Youtube apps</div>
+        </div>
+        <div class="notifications-container">
+          <img class="notifications-icon" src="icons/notifications.svg">
+          <div class="notifications-count">3</div>
+          <div class="tooltip">Notifications</div>
+        </div>
+        <div class="current-user-picture-container">
+          <img class="current-user-picture" src="chanels-picture/unnamed.jpg">
+        </div>
+      </nav>
+    </header>
+    
+    <nav class="sidebar">
+      <div class="sidebar-link">
+        <img src="icons/home.svg">
+        <div>Home</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="icons/explore.svg">
+        <div>Explore</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="icons/subscriptions.svg">
+        <div>Subcriptions</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="icons/originals.svg">
+        <div>Originals</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="icons/youtube-music.svg">
+        <div>Youtube music</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="icons/library.svg">
+        <div>Library</div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="video-grid">
+        <div class="video-preview">
+          <div class="thumbnails-row">
+            <img class="thumbnails" src="thumbnails/thumbnail-1.webp">
+            <div class="video-time">14:20</div>
+          </div>
+    
+          <div class="video-info-grid">
+            <div class="chanels-picture">
+              <img class="profile-picture" src="chanels-picture/channel-1.jpeg">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                Talking Tech and AI with Google CEO Sundar Pichai!
+              </p>
+              <p class="video-authors">
+                Marques Brownlee
+              </p>
+              <p class="video-stats">
+                3.4M views &#8226; 6 months ago
+              </p>
+            </div>
+          </div>
+        </div>
+    
+    
+        <div class="video-preview">
+          <div class="video-preview">
+            <div class="thumbnails-row">
+              <img class="thumbnails" src="thumbnails/thumbnail-2.webp">
+              <div class="video-time">8:22</div>
+            </div>
+    
+            <div class="video-info-grid">
+              <div class="chanels-picture">
+                <img class="profile-picture" src="chanels-picture/channel-2.jpeg">
+              </div>
+              <div class="video-info">
+                <p class="video-title">
+                  Try Not To Laugh Challenge #9
+                </p>
+                <p class="video-authors">
+                  Markiplier
+                </p>
+                <p class="video-stats">
+                  19M views &#8226; 4 years ago
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="video-preview">
+          <div class="thumbnails-row">
+            <div class="video-time">9:13</div>
+            <img class="thumbnails" src="thumbnails/thumbnail-3.webp">
+          </div>
+    
+          <div class="video-info-grid">
+            <div class="chanels-picture">
+              <img class="profile-picture" src="chanels-picture/channel-3.jpeg">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                Crazy Tik Toks Taken Moments Before DISASTER
+              </p>
+              <p class="video-authors">
+                SSSniperWolf
+              </p>
+              <p class="video-stats">
+                12M views &#8226; 1 year ago
+              </p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="video-preview">
+          <div class="video-preview">
+            <div class="thumbnails-row">
+              <div class="video-time">22:09</div>
+              <img class="thumbnails" src="thumbnails/thumbnail-4.webp">
+            </div>
+    
+            <div class="video-info-grid">
+              <div class="chanels-picture">
+                <img class="profile-picture" src="chanels-picture/channel-4.jpeg">
+              </div>
+              <div class="video-info">
+                <p class="video-title">
+                  The Simplest Math Problem No One Can Solve &#45; Collatz Conjecture
+                </p>
+                <p class="video-authors">
+                  Veritasium
+                </p>
+                <p class="video-stats">
+                  18M views &#8226; 4 months ago
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="video-preview">
+          <div class="thumbnails-row">
+            <div class="video-time">11:17</div>
+            <img class="thumbnails" src="thumbnails/thumbnail-5.webp">
+          </div>
+    
+          <div class="video-info-grid">
+            <div class="chanels-picture">
+              <img class="profile-picture" src="chanels-picture/channel-5.jpeg">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                Kadane's Algorithm to Maximum Sum Subarray Problem
+              </p>
+              <p class="video-authors">
+                CS Dojo
+              </p>
+              <p class="video-stats">
+                519K views &#8226; 5 years ago
+              </p>
+            </div>
+          </div>
+        </div>
+    
+    
+        <div class="video-preview">
+          <div class="video-preview">
+            <div class="thumbnails-row">
+              <div class="video-time">19:59</div>
+              <img class="thumbnails" src="thumbnails/thumbnail-6.webp">
+            </div>
+    
+            <div class="video-info-grid">
+              <div class="chanels-picture">
+                <img class="profile-picture" src="chanels-picture/channel-6.jpeg">
+              </div>
+              <div class="video-info">
+                <p class="video-title">
+                  Anything You Can Fit In The Circle I&#39;ll Pay For
+                </p>
+                <p class="video-authors">
+                  MrBeast
+                </p>
+                <p class="video-stats">
+                  141M views &#8226; 1 year ago
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="video-preview">
+          <div class="thumbnails-row">
+            <img class="thumbnails" src="thumbnails/thumbnail-7.webp">
+            <div class="video-time">10:13</div>
+          </div>
+    
+          <div class="video-info-grid">
+            <div class="chanels-picture">
+              <img class="profile-picture" src="chanels-picture/channel-7.jpeg">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                Why Planes Don't Fly Over Tibet
+              </p>
+              <p class="video-authors">
+                RealLifeLore
+              </p>
+              <p class="video-stats">
+                6.6M views &#8226; 1 year ago
+              </p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="video-preview">
+          <div class="thumbnails-row">
+            <img class="thumbnails" src="thumbnails/thumbnail-8.webp">
+            <div class="video-time">7:12</div>
+          </div>
+    
+          <div class="video-info-grid">
+            <div class="chanels-picture">
+              <img class="profile-picture" src="chanels-picture/channel-8.jpeg">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                Inside The World's Biggest Passenger Plane
+              </p>
+              <p class="video-authors">
+                Tech Vision
+              </p>
+              <p class="video-stats">
+                3.7M views &#8226; 10 months ago
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="video-preview">
+          <div class="thumbnails-row">
+            <img class="thumbnails" src="thumbnails/thumbnail-9.webp">
+            <div class="video-time">13:17</div>
+          </div>
+    
+          <div class="video-info-grid">
+            <div class="chanels-picture">
+              <img class="profile-picture" src="chanels-picturE/channel-9.jpeg">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                The SECRET to Super Human STRENGTH
+              </p>
+              <p class="video-authors">
+                ThenX
+              </p>
+              <p class="video-stats">
+                20M views &#8226; 3 year ago
+              </p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="video-preview">
+          <div class="thumbnails-row">
+            <img class="thumbnails" src="thumbnails/thumbnail-10.webp">
+            <div class="video-time">7:53</div>
+          </div>
+    
+          <div class="video-info-grid">
+            <div class="chanels-picture">
+              <img class="profile-picture" src="chanels-picture/channel-10.jpeg">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                How The World's Largest Cruise Ship Makes 30,000 Meals Every Day
+              </p>
+              <p class="video-authors">
+                Business Insider
+              </p>
+              <p class="video-stats">
+                14M views &#8226; 1 year ago
+              </p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="video-preview">
+          <div class="thumbnails-row">
+            <img class="thumbnails" src="thumbnails/thumbnail-11.webp">
+            <div class="video-time">4:10</div>
+          </div>
+    
+          <div class="video-info-grid">
+            <div class="chanels-picture">
+              <img class="profile-picture" src="chanels-picture/channel-11.jpeg">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                Dubai's Crazy Underwater Train and Other Things #Only in Dubai
+              </p>
+              <p class="video-authors">
+                Destination Tips
+              </p>
+              <p class="video-stats">
+                3M views &#8226; year ago
+              </p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="video-preview">
+          <div class="thumbnails-row">
+            <img class="thumbnails" src="thumbnails/thumbnail-12.webp">
+            <div class="video-time">4:51</div>
+          </div>
+    
+          <div class="video-info-grid">
+            <div class="chanels-picture">
+              <img class="profile-picture" src="chanels-picture/channel-12.jpeg">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                What would happen if you didn’t drink water? - Mia Nacamulli
+              </p>
+              <p class="video-authors">
+                TED-Ed
+              </p>
+              <!--comment-->
+              <p class="video-stats">
+                12M views  &#8226; 5 years ago
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

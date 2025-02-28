@@ -1,0 +1,84 @@
+<!--* button là một CSS selector biểu thị ta đang thao tác trên các yếu tố nút của HTML
+  *class="sub-button", đặt tên cho button, hướng tới làm việc -> .sub-button
+  * ghi chú không thể đặt bên trong yếu tố
+  *box-shadow: 5px 4px 8px gray; => tạo bóng cách vị trí "gốc" với tọa độ x=5pixel, y= 4pixel, bóng được kéo mờ 8pixel, bóng có màu xám
+  CSS Box Model: - how much space an element takes up
+                 - How far it is away from other element
+  border-redius: độ bo góc
+  => đối tượng nào được tạo trước thì đối tượng đó xuất hiện trên giao diện trước
+  .cursor: (option); => điều chỉnh định dạng chuột thành (option) khi đưa chuột vào (nút)
+      pointer-events: none; -> tắt hoạt động của đối tượng khi chuột chạm vào
+      opacity: 0.7; -> thời gian delay hoạt động
+  -->
+ <!DOCTYPE html>
+ <html>
+    <head>
+      <link rel="stylesheet" href="style/buttons.css">
+    <style>
+      .sub-button {
+        background-color: rgb(230, 6, 6);
+        color: #ffffff;
+        border: none;
+        height: 30px;
+        width: 80px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+        transition: opacity 0.2s;
+      }
+
+      .sub-button:hover{
+        opacity: 0.7;
+      }
+      .SUB-button:active{
+        opacity: 0.4;
+      }
+
+      .join-button {
+        border-color: rgb(0, 170, 255);
+        color: rgb(0, 149, 255);
+        border-style: solid;
+        background-color: #ffffff;
+        border-width: 1px;
+        height: 30px;
+        width: 80px;
+        cursor: pointer;
+        transition: background-color 0.2s,
+        color 0.2s
+      }
+      .join-button:hover{
+        color:#ffffff;
+        background-color: rgb(0, 149, 255);
+      }
+
+      .X-button {
+        background-color: rgb(20, 19, 19);
+        color: #ffffff;
+        border: none;
+        height: 30px;
+        width: 80px;
+        border-radius: 200px;
+        margin-left: 10px;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .X-button:hover{
+        box-shadow: 5px 4px 8px rgb(128, 128, 128);
+      }
+    </style>
+    </head>
+
+    <body>
+      <button class="sub-button">
+        SUBSCRIBE MY CHANNEL
+      </button>
+      <button class="join-button">
+        Join
+      </button>
+      <button class="X-button">
+        X
+      </button>
+    </body>
+ </html>

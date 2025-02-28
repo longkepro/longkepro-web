@@ -1,0 +1,111 @@
+<!--font-weight:giá trị; => điều chỉnh độ đậm của text 
+text-align: center; => căn lề text
+font-family: Arial; => đổi font
+font-style:italic; => chuyển kiểu in nghiêng
+&#183; => mã của ký tự đặc biệt, có thể tìm thấy trên google
+<p> = paragraph: tự động có khoảng trống ở trên và dưới (margin)
+trong css: selector nào cụ thể hơn thì selector đó có độ ưu tiên cao hơn
+=> VD: P: là selector chọn đến tất cả các yếu tố paragraph hay <p>
+       .video-title: là selector chỉ chọn đến đoạn "video-tile"
+       ==> selector .video-title sẽ có độ ưu tiên cao hơn p => vậy css sẽ thực hiện lệnh trong .video-title khi mà có một lệnh mà 2 selector trùng (ở đây là margin-top và margin-bottom)
+  =>CSS ngoài chạy code từ trên xuống dưới ra, nó còn chạy theo độ ưu tiên
+Text element: <strong>: phần tử được tô đậm; <u>: phần tử được gạch chân; <span>: phân tử tùy chỉnh       
+  <!DOCTYPE html>
+<html>
+  <head></head> => những phần ẩn, không được thể hiện: ví dụ: các chỉnh sửa
+  <body></body> ==> những phần được thể hiện trên website
+</html>
+===> cấu trúc html
+void element: những đối tượng của html không cần closing tag vd: <link> trong bài dưới
+<link> được dùng để liên kết các file css và html, cần chia ra như vậy để code clean hơn
+<link rel="<style>" href="<đường dẫn tới file cần liên kết>">
+live server: gói hỗ trợ web tự load lại khi save code khi open with live server
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Text practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+    <style>
+    .video-title{
+      font-weight: bold;
+      font-size: 18px;
+      width: 280px;
+      line-height: 24px;
+      margin-bottom: 5;
+    }
+    p{
+      font-family: Roboto;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .video-stats{
+      font-size: 14px;
+      color: rgb(96, 96, 96);
+      margin-bottom: 20px;
+    }
+    .video-authors{
+      font-size: 14px;
+      color: rgb(96, 96, 96);
+      margin-bottom: 20px;
+    }
+    .video-description{
+      font-size: 14px;
+      color: rgb(96, 96, 96);
+      width: 280px;
+      line-height: 22px;
+      margin-bottom: 100px;
+    }
+    .apple-text{
+      margin-bottom: 50px;
+      font-size: 14px;
+      background-color:  rgb(227, 65, 64);
+      color: white;
+      text-align: center;
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+    .span-ex{
+      color: red;
+    }
+    .span-ex:hover{
+      text-decoration: underline;
+    }
+    .shop-link{
+      margin-left: 20px;
+    }
+    .shop-link:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    </style>
+  </head>
+  <body>  
+      <p class="video-title">
+        Talking Tech and AI with Google CEO Sundar Pichai!
+      </p>
+      <P class="video-stats">
+        3.4M views &#183; 6 months ago
+      </P>
+      <p class="video-authors">
+        Marques Brownlee &#10003;
+      </p>
+      <p class="video-description">
+        Talking tech and AI on the heels of Google I/O. Also a daily driver phone reveal from Google's CEO. Shoutout to Sundar!
+      </p>
+      <p class="apple-text">
+        Shop early for the best selection of holiday favourites. <span class="shop-link">shop now &#62;</span> 
+      </p>
+      <p>
+        Shop early for the <strong>best selection</strong> of <u>holiday</u> <span class="span-ex">Shop now</span> &#62;
+      </p>
+  </body>
+</html>
+
+
+
+
+
+
