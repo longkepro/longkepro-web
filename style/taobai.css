@@ -1,0 +1,62 @@
+.tao-bai{
+  display: grid;
+  grid-template-columns: 1fr;
+  border: none;
+  box-shadow: 0 0 3px gray;
+  border-radius: 10px;
+  background-color: white;
+}
+.tao-bai-goiy{
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  min-width: 500px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.user-goiy{
+  display: flex;
+}
+
+.goiy-input{
+  height: 35px;
+  border-width: 0px;
+  border-radius: 17px;
+  background-color: rgb(240, 242, 245);
+  color: white;
+  width: 450px;
+  padding-left: 10px;
+  flex: 1;
+}
+
+.user-avatar{
+  display: flex;
+  margin: 8px 8px 8px 0px;
+}
+.user-avatar-img{
+  border-radius: 20px;
+}
+
+.bai-option{
+  display: flex;
+  max-width: 1000px;
+  min-width: 500px;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: rgb(226, 229, 233);
+  height: 35px;
+  display: flex;
+  padding: 8px 8px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.bai-option div p{
+  margin-left: 8px;
+}
+.bai-option div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border-radius: 8px;
+}
